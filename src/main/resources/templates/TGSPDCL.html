@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Digital Life Certificate</title>
+    <style>
+       * {
+            margin: 4px;
+        }
+        h4 {
+            text-align: center;
+            text-decoration: underline;
+            color: blue;
+            padding: 10px;
+        }
+        img {
+            width: 150px;
+        }
+        .heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: rgb(234, 92, 116);
+        }
+        .heading1 {   
+            align-content: center;
+        }
+        .footer-content p, b {
+            font-size: 16px; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="heading">
+        <div class="image-heading">
+            <img src="src/main/resources/logo/SPDCL.jpeg" alt="Logo" style="width: 70px;" />
+        </div>
+        <div class="heading1" style="color: white;">
+            <h2>Southern Power Distribution Company of Telangana Ltd.</h2>
+            <p style="text-align: center;">( A Government of Telangana Undertaking)</p>
+        </div>
+        <div>
+            <!-- dummy div -->
+        </div>
+    </div>
+    <h4>Digital Life Certificate for the Year 2025-26</h4>
+
+    <table width="100%">
+        <tr>       
+			<td>Pensioner's Name:</td>
+			<td><span th:text="${pensionerName}"></span></td>
+            <td rowspan="6">       
+                <div class="image-container" th:if="${departmentPhotoBase64}" style="padding-left: 30px;">
+                    <img th:src="'data:image/jpeg;base64,' + ${departmentPhotoBase64}" alt="Department Photo" />
+                </div>
+            </td>
+        </tr>
+        <tr>
+			<td>Pensioner ID:</td>
+			<td><span th:text="${pensionerId}"></span></td>
+        </tr>
+         <tr>
+			<td>PPO Number:</td>
+			<td><span th:text="${ppoNumber}"></span></td>
+        </tr>
+        <tr>
+            <td>Mobile Number:</td>
+            <td><span th:text="${mobileNumber}"></span></td>
+        </tr>
+        <!--<tr>
+            <td>Email ID:</td>
+            <td><span th:text="${email}"></span></td>
+        </tr>-->
+        <tr>
+            <td>Life Certificate Issued Date &amp; Time:</td>
+            <td><span th:text="${issuedDateTime}"></span></td>
+        </tr>
+        <tr>
+            <td>Submitted Date:</td>
+            <td><span th:text="${SubmittedDate}"></span></td>
+        </tr>
+    </table>
+
+    <!-- Footer Section -->
+    <div class="footer-content">
+        <p>For any queries, please reach out to us over phone at: <b>18004251110</b></p>
+        <p>or email us at: <b>tapp-support@telangana.gov.in</b></p>
+        <b><u>TGSPDCL Helpdesk Details:</u></b>
+        <p>Landline: 040-23431343 / Mobile: 9440813888 during office hours only</p>
+        <p>Email: <b>payofficer@tgsouthernpower.org</b></p>
+    </div>
+</body>
+</html>

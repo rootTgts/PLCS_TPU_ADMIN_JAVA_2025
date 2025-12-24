@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<include
+		resource="org/springframework/boot/logging/logback/base.xml" />
+			
+		 <springProfile name="stg">
+	<appender name="ROLLIN"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<!-- CHANGE THE LOCATION TO GENERATE LOGS -->
+		<file>	D:/tpu-admin/log/tgts-tpu-pensioner.log</file>
+			<encoder
+				class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+				<Pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} [%thread]
+					%-5level%logger{36}.%M
+					- %msg%n</Pattern>
+			</encoder>
+			<rollingPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+
+				<fileNamePattern>
+						D:/tpu-admin/log/archived/tgts-tpu-pensioner_%d{dd-MM-yyyy}_%i.log
+				</fileNamePattern>
+
+				<!-- keep 365 days' worth of history capped at 1GB total size -->
+				<maxFileSize>512MB</maxFileSize>
+				<maxHistory>365</maxHistory>
+				<totalSizeCap>1024MB</totalSizeCap>
+			</rollingPolicy>
+		 
+		 	</appender>
+	<root level="INFO">
+		<appender-ref ref="ROLLIN" />
+	</root>
+	  </springProfile>
+
+
+
+ <springProfile name="prod">
+	<appender name="ROLLIN"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<!-- CHANGE THE LOCATION TO GENERATE LOGS -->
+		<file>D:/tpu-admin/log/tgts-tpu-pensioner.log</file>
+			<encoder
+				class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+				<Pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} [%thread]
+					%-5level%logger{36}.%M
+					- %msg%n</Pattern>
+			</encoder>
+			<rollingPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+
+				<fileNamePattern>
+					D:/tpu-admin/log/tgts-tpu-pensioner_%d{dd-MM-yyyy}_%i.log
+				</fileNamePattern>
+
+				<!-- keep 365 days' worth of history capped at 1GB total size -->
+				<maxFileSize>512MB</maxFileSize>
+				<maxHistory>365</maxHistory>
+				<totalSizeCap>1024MB</totalSizeCap>
+			</rollingPolicy>
+		 
+		 	</appender>
+	<root level="INFO">
+		<appender-ref ref="ROLLIN" />
+	</root>
+	  </springProfile>
+
+
+	<logger name="org.springframework.web" level="INFO" />
+</configuration>

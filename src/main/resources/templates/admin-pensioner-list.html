@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Pensioner List</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 2px;
+			line-height: 1;
+		}
+
+		h2 {
+			text-align: center;
+			color: #007bff;
+			margin-bottom: 5px;
+		}
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			margin-top: 5px;
+		}
+
+		th,
+		td {
+			border: 0.5px solid #ddd;
+			padding: 5px;
+			text-align: center;
+			font-size: 10px;
+		}
+
+		th {
+			background-color: #343a40;
+			color: white;
+		}
+
+		tr:nth-child(even) {
+			background-color: #f2f2f2;
+		}
+	</style>
+</head>
+
+<body>
+	<h2>Pensioner List</h2>
+	<table>
+		<thead>
+			<tr>
+				<th>SL No</th>
+				<th>Pensioner ID</th>
+				<th>Pensioner Name</th>
+				<th>Pensioner Type</th>
+				<th>Approved Code</th>
+				<th>Submitted Date</th>
+				<th>Approved Date</th>
+				<th>Status</th>
+			</tr>
+		</thead>
+		<tbody>
+
+			<tr th:each="pensioner : ${pensioners}">
+				<td th:text="${pensioner.SLNo}"></td>
+				<td th:text="${pensioner.pensionerId}"></td>
+				<td th:text="${pensioner.pensionerName}"></td>
+				<td th:text="${pensioner.pensionerType}"></td>
+				<td th:text="${pensioner.approverCode}"></td>
+				<td th:text="${pensioner.submittedDate}"></td>
+				<td th:text="${pensioner.approvedDate}"></td>
+				<td th:text="${pensioner.status}"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+
+</html>

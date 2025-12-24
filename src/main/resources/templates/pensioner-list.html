@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Pensioner Verified List</title>
+
+	<style type="text/css">
+	    body {
+	        font-family: Arial, sans-serif;
+	        margin: 20px;
+	        line-height: 1.4;
+	    }
+
+	    h2 {
+	        text-align: center;
+	        color: #007bff;
+	        margin-bottom: 15px;
+	    }
+
+	    table {
+	        width: 100%;
+	        border-collapse: collapse;
+	        table-layout: fixed;    /* PDF-friendly */
+	        font-size: 11px;        /* ↓ smaller text */
+	    }
+
+	    th, td {
+	        border: 1px solid #ddd;
+	        padding: 6px;           /* ↓ smaller padding */
+	        text-align: center;
+
+	        white-space: nowrap;    
+	        overflow: hidden;
+	        text-overflow: clip;    /* NO ellipsis → no cut */
+	    }
+
+	    th {
+	        background-color: #343a40;
+	        color: #fff;
+	        font-size: 11px;
+	    }
+
+	    tr:nth-child(even) {
+	        background-color: #f2f2f2;
+	    }
+
+	    .submitted-date {
+	        white-space: nowrap;
+	    }
+	</style>
+
+</head>
+<body>
+
+    <h2>Pensioner List</h2>
+
+    <table>
+        <!-- IMPORTANT: self-close <col/> for XML/XHTML parsers -->
+        <colgroup>
+            <col style="width: 6%;" />
+            <col style="width: 10%;" />
+            <col style="width: 30%;" />
+            <col style="width: 19%;" />
+            <col style="width: 10%;" />
+            <col style="width: 25%;" />
+        </colgroup>
+
+        <thead>
+            <tr>
+                <th>SL No</th>
+                <th>Pensioner ID</th>
+                <th>Pensioner Name</th>
+                <th>Pensioner Type</th>
+                <th>Status</th>
+                <th class="submitted-date">Submitted Date</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr th:each="pensioner, iter : ${pensioners}">
+                <td th:text="${iter.index + 1}"></td>
+                <td th:text="${pensioner.pensionerId}"></td>
+                <td th:text="${pensioner.pensionerName}"></td>
+                <td th:text="${pensioner.pensionerType}"></td>
+                <td th:text="${pensioner.status}"></td>
+                <!-- render raw string date to avoid temporals error -->
+                <td class="submitted-date" th:text="${pensioner.submittedDate}"></td>
+            </tr>
+
+            <tr th:if="${#lists.isEmpty(pensioners)}">
+                <td colspan="6">No data available</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
