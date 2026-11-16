@@ -24,6 +24,7 @@ import com.wissen.tpu.service.AdminService;
 
 @RestController
 @RequestMapping("/plcstpu/admin")
+// /plcstpu/staging/admin  (for staging)
 public class AdminController {
 
 	@Autowired

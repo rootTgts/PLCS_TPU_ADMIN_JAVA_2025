@@ -27,7 +27,7 @@ public interface ApproverRepository extends JpaRepository<ApproverUser, Integer>
 
 	@Query(value = "SELECT DISTINCT rp.pensioner_id, rp.ppo_no, rp.pensioner_name, rp.mobile_no, "
 			+ "rp.photo_match_status, rp.photo_match_score, rp.dg_status, rp.status, "
-			+ "rp.input_photo_uuid, rp.department, pt.pensioner_type, pt.approver_unit_code ,rp.created_time "
+			+ "rp.input_photo_uuid, rp.department, pt.pensioner_type, pt.approver_unit_code ,rp.created_time ,rp.re_marriage "
 			+ "FROM registration_pensioner rp "
 			+ "INNER JOIN pensioners_target pt ON pt.pensioner_fp_id = rp.pensioner_id "
 			+ "WHERE rp.pensioner_id = :pensionerId " + "AND rp.photo_match_status = 'MATCHED' "
@@ -62,7 +62,7 @@ public interface ApproverRepository extends JpaRepository<ApproverUser, Integer>
 
 	@Query(value = "SELECT DISTINCT rp.pensioner_id, rp.ppo_no, rp.pensioner_name, rp.mobile_no, "
 			+ "rp.photo_match_status, rp.photo_match_score, rp.dg_status, rp.status, "
-			+ "rp.input_photo_uuid, rp.department, pt.pensioner_type, pt.approver_unit_code,rp.created_time "
+			+ "rp.input_photo_uuid, rp.department, pt.pensioner_type, pt.approver_unit_code,rp.created_time ,rp.re_marriage "
 			+ "FROM registration_pensioner rp "
 			+ "INNER JOIN pensioners_target pt ON pt.pensioner_fp_id = rp.pensioner_id "
 			+ "WHERE rp.pensioner_id = :pensionerId " + "AND rp.photo_match_status = 'MATCHED' "
@@ -72,7 +72,7 @@ public interface ApproverRepository extends JpaRepository<ApproverUser, Integer>
 
 	@Query(value = "SELECT DISTINCT rp.pensioner_id, rp.ppo_no, rp.pensioner_name, rp.mobile_no, "
 			+ "rp.photo_match_status, rp.photo_match_score, rp.dg_status, rp.status, "
-			+ "rp.input_photo_uuid, rp.department, pt.pensioner_type, pt.approver_unit_code,rp.created_time "
+			+ "rp.input_photo_uuid, rp.department, pt.pensioner_type, pt.approver_unit_code,rp.created_time ,rp.re_marriage "
 			+ "FROM registration_pensioner rp "
 			+ "INNER JOIN pensioners_target pt ON pt.pensioner_fp_id = rp.pensioner_id "
 			+ "WHERE rp.pensioner_id = :pensionerId " + "AND rp.photo_match_status = 'MATCHED' "

@@ -70,6 +70,7 @@ public class PdfGeneratorService {
 
 				data.put("issuedDateTime", utils.generateDateFormat(approvedDate));
 				data.put("SubmittedDate", utils.generateDateFormat(submittedData));
+				data.put("re_marriage", (reponse[7] != null ? (String) reponse[7] : null));
 
 				data.put("status", "Digital Life Certificate Approved"); // Ensure no & here
 

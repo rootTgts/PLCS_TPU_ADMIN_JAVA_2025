@@ -120,6 +120,7 @@ public class VerifierService {
 			details.setUnitCode(row[11] != null ? row[11].toString() : null);
 
 			details.setSubmittedDate(row[12] != null ? row[12].toString() : null);
+			details.setRe_marriage(row[13] != null ? row[13].toString() : null);
 			detailsList.add(details);
 		}
 
@@ -302,6 +303,7 @@ public class VerifierService {
 			details.setPensionerType(row[10] != null ? row[10].toString() : null);
 			details.setUnitCode(row[11] != null ? row[11].toString() : null);
 			details.setSubmittedDate(row[12] != null ? row[12].toString() : null);
+			details.setRe_marriage(row[13] != null ? row[13].toString() : null);
 			detailsList.add(details);
 		}
 
@@ -368,6 +370,7 @@ public class VerifierService {
 			details.setPensionerType(row[10] != null ? row[10].toString() : null);
 			details.setUnitCode(row[11] != null ? row[11].toString() : null);
 			details.setSubmittedDate(row[12] != null ? row[12].toString() : null);
+			details.setRe_marriage(row[13] != null ? row[13].toString() : null);
 			detailsList.add(details);
 		}
 

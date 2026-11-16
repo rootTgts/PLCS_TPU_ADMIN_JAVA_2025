@@ -29,7 +29,7 @@ public interface VerifierRepository extends JpaRepository<VerifierUser, Integer>
 
 	@Query(value = "SELECT DISTINCT pt.pensioner_fp_id, pt.ppo_no, pt.pensioner_name, rp.mobile_no, "
 			+ "rp.photo_match_status, rp.photo_match_score, rp.dg_status, rp.status, "
-			+ "rp.input_photo_uuid, rp.department, pt.pensioner_type, pt.approver_unit_code,rp.created_time "
+			+ "rp.input_photo_uuid, rp.department, pt.pensioner_type, pt.approver_unit_code,rp.created_time,rp.re_marriage "
 			+ "FROM registration_pensioner rp "
 			+ "INNER JOIN pensioners_target pt ON pt.pensioner_fp_id = rp.pensioner_id "
 			+ "WHERE rp.pensioner_id = :pensionerId  AND rp.department = :deptCode AND pt.verifying_officer_code=:code "
@@ -64,7 +64,7 @@ public interface VerifierRepository extends JpaRepository<VerifierUser, Integer>
 
 	@Query(value = "SELECT DISTINCT pt.pensioner_fp_id, pt.ppo_no, pt.pensioner_name, rp.mobile_no, "
 			+ "rp.photo_match_status, rp.photo_match_score, rp.dg_status, rp.status, "
-			+ "rp.input_photo_uuid, rp.department, pt.pensioner_type, pt.approver_unit_code,rp.created_time "
+			+ "rp.input_photo_uuid, rp.department, pt.pensioner_type, pt.approver_unit_code,rp.created_time,rp.re_marriage "
 			+ "FROM registration_pensioner rp "
 			+ "INNER JOIN pensioners_target pt ON pt.pensioner_fp_id = rp.pensioner_id "
 			+ "WHERE rp.pensioner_id = :pensionerId  AND rp.department = :deptCode AND pt.verifying_officer_code=:code "
@@ -74,7 +74,7 @@ public interface VerifierRepository extends JpaRepository<VerifierUser, Integer>
 
 	@Query(value = "SELECT DISTINCT pt.pensioner_fp_id, pt.ppo_no, pt.pensioner_name, rp.mobile_no, "
 			+ "rp.photo_match_status, rp.photo_match_score, rp.dg_status, rp.status, "
-			+ "rp.input_photo_uuid, rp.department, pt.pensioner_type, pt.approver_unit_code ,rp.created_time "
+			+ "rp.input_photo_uuid, rp.department, pt.pensioner_type, pt.approver_unit_code ,rp.created_time,rp.re_marriage "
 			+ "FROM registration_pensioner rp "
 			+ "INNER JOIN pensioners_target pt ON pt.pensioner_fp_id = rp.pensioner_id "
 			+ "WHERE rp.pensioner_id = :pensionerId  AND rp.department = :deptCode AND pt.verifying_officer_code=:code "

@@ -100,6 +100,7 @@ public class ApproverService {
 			details.setInputPhoto(inputPhoto);
 			details.setDepartmentName(get(row, 9));
 			details.setSubmittedDate(get(row, 12));
+			details.setRe_marriage(get(row,13));
 
 			detailsList.add(details);
 		}
@@ -349,6 +350,7 @@ public class ApproverService {
 			details.setInputPhoto(inputPhoto);
 			details.setDepartmentName(row[9] != null ? row[9].toString() : null);
 			details.setSubmittedDate(row[12] != null ? row[12].toString() : null);
+			details.setRe_marriage(row[13] != null ? row[13].toString() : null);
 
 			detailsList.add(details);
 		}
@@ -412,6 +414,7 @@ public class ApproverService {
 			details.setDepartmentName(row[9] != null ? row[9].toString() : null);
 
 			details.setSubmittedDate(row[12] != null ? row[12].toString() : null);
+			details.setRe_marriage(row[13] != null ? row[13].toString() : null);
 			detailsList.add(details);
 		}
 

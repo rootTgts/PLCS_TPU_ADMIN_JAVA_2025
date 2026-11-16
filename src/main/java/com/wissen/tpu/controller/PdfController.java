@@ -31,6 +31,7 @@ import com.wissen.tpu.service.VerifierService;
 
 @RestController
 @RequestMapping("/plcstpu/pdf")
+///plcstpu/staging/pdf  (for staging)
 public class PdfController {
 	private static final Log logger = LogFactory.getLog(PdfController.class);
 	@Autowired
@@ -102,24 +103,40 @@ public class PdfController {
 		byte[] pdfBytes = null;
 		logger.info("request from t-app log ==>> pensionerId is " + pensionerId + " department is " + dept);
 		Map<String, Object> data = pdfGeneratorService.getByPensionerIdForPDFByApproved(pensionerId, dept);
-		if (data != null) {
+		if (data != null) {		
+			
+			String re_marriage = (String) data.get("re_marriage");
 
 			if (dept.equalsIgnoreCase("TGGENCO")) {
-				pdfBytes = pdfGeneratorService.generatePdf("TGGENCO", data);
-
+				 if ("Yes".equalsIgnoreCase(re_marriage)) {
+					 	pdfBytes = pdfGeneratorService.generatePdf("TGGENCOfam", data);
+				 }else {
+					 pdfBytes = pdfGeneratorService.generatePdf("TGGENCO", data);
+				 }
 			}
 
 			if (dept.equalsIgnoreCase("TGNPDCL")) {
-				pdfBytes = pdfGeneratorService.generatePdf("TGNPDCL", data);
-
+				 if ("Yes".equalsIgnoreCase(re_marriage)) {
+					 	pdfBytes = pdfGeneratorService.generatePdf("NPDCLfam", data);
+				 }else {
+		              pdfBytes = pdfGeneratorService.generatePdf("TGNPDCL", data);
+				 }
 			}
+			
 			if (dept.equalsIgnoreCase("TGSPDCL")) {
-				pdfBytes = pdfGeneratorService.generatePdf("TGSPDCL", data);
-
+				if ("Yes".equalsIgnoreCase(re_marriage)) {
+						pdfBytes = pdfGeneratorService.generatePdf("TGSPDCLfam", data);
+				}else {
+					  pdfBytes = pdfGeneratorService.generatePdf("TGSPDCL", data);
+				}
 			}
+			
 			if (dept.equalsIgnoreCase("TGTRANSCO")) {
-				pdfBytes = pdfGeneratorService.generatePdf("TGTRANSCO", data);
-
+				if ("Yes".equalsIgnoreCase(re_marriage)) {
+						pdfBytes = pdfGeneratorService.generatePdf("TGTRANSCOfam", data);
+				}else {
+					 pdfBytes = pdfGeneratorService.generatePdf("TGTRANSCO", data);
+				}
 			}
 
 			headers.setContentDispositionFormData("filename", pensionerId + ".pdf");

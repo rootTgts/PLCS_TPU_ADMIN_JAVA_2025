@@ -18,6 +18,7 @@ public class MatchedDetails {
 	private String unitName;
 	private String unitCode;
 	private String submittedDate;
+	private String re_marriage;
 
 	public MatchedDetails() {
 
@@ -150,6 +151,14 @@ public class MatchedDetails {
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
+	
+	public String getRe_marriage() {
+		return re_marriage;
+	}
+
+	public void setRe_marriage(String re_marriage) {
+		this.re_marriage = re_marriage;
+	}
 
 	public MatchedDetails(String pensionerId, String ppoId, String pensionerName, String dOB, String pensionerType,
 			String mobile, String dgStatus, String photoMatchStatus, String photoMatchScore, String status) {
@@ -169,7 +178,7 @@ public class MatchedDetails {
 
 	public MatchedDetails(String pensionerId, String ppoId, String pensionerName, String dOB, String pensionerType,
 			String mobile, String dgStatus, String photoMatchStatus, String photoMatchScore, String status,
-			String inputPhoto, String departmentPhoto) {
+			String inputPhoto, String departmentPhoto,String re_marriage) {
 		super();
 		this.pensionerId = pensionerId;
 		this.ppoId = ppoId;
@@ -183,6 +192,7 @@ public class MatchedDetails {
 		this.status = status;
 		this.inputPhoto = inputPhoto;
 		this.departmentPhoto = departmentPhoto;
+		this.re_marriage=re_marriage;
 	}
 
 }

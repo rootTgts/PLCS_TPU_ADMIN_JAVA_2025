@@ -17,7 +17,7 @@ public class DownloadRepository {
 	public Object[] findByPensionerIDAndDeptForDownload(String pensionerId, String dept) {
 
 	    String jpql = "SELECT pt.pensioner_fp_id, pt.ppo_no, pt.pensioner_name, pt.mobile_no, "
-	            + "rp.input_photo_uuid, rp.created_time as submitted_time, aa.created_date as approved_time "
+	            + "rp.input_photo_uuid, rp.created_time as submitted_time, aa.created_date as approved_time ,rp.re_marriage "
 	            + "FROM pensioners_target pt "
 	            + "  INNER JOIN registration_pensioner rp ON pt.pensioner_fp_id = rp.pensioner_id and pt.deptCode =rp.department "
 	            + "  INNER JOIN approver_audit aa ON rp.pensioner_id = aa.pensioner_id and rp.department =aa.department  "

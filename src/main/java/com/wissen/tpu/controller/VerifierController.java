@@ -32,6 +32,7 @@ import com.wissen.tpu.service.VerifierService;
 /*@CrossOrigin(origins = "*")*/
 @RestController
 @RequestMapping("/plcstpu/verifier")
+///plcstpu/staging/verifier  (for staging)
 public class VerifierController {
 
 	private static final Log logger = LogFactory.getLog(VerifierController.class);

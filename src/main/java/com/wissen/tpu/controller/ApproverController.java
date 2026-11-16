@@ -32,6 +32,7 @@ import com.wissen.tpu.service.VerifierService;
 
 @RestController
 @RequestMapping("/plcstpu/approver")
+///plcstpu/staging/approver  (for staging)
 public class ApproverController {
 	@Autowired
 	ApproverService service;
